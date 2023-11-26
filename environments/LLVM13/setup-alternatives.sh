@@ -1,0 +1,91 @@
+#!/bin/bash
+
+commands=(
+    llvm-PerfectShuffle
+    llvm-lib
+    llvm-dis
+    not
+    clang++
+    llvm-link
+    split-file
+    llvm-opt-report
+    llvm-bcanalyzer
+    yaml-bench
+    llvm-exegesis
+    llvm-xray
+    llvm-bitcode-strip
+    llvm-tblgen
+    llvm-ranlib
+    llc
+    llvm-readobj
+    llvm-strip
+    llvm-rc
+    llvm-mt
+    llvm-c-test
+    asan_symbolize
+    llvm-ar
+    llvm-gsymutil
+    llvm-mc
+    llvm-libtool-darwin
+    llvm-objcopy
+    llvm-diff
+    llvm-extract
+    llvm-pdbutil
+    llvm-reduce
+    llvm-ifs
+    llvm-config
+    llvm-profdata
+    llvm-cxxdump
+    FileCheck
+    llvm-dlltool
+    llvm-cxxfilt
+    llvm-tapi-diff
+    llvm-objdump
+    llvm-ml
+    dsymutil
+    sanstats
+    llvm-lipo
+    llvm-jitlink-executor
+    llvm-llvm-readelf
+    llvm-sim
+    llvm-profgen
+    llvm-cov
+    llvm-stress
+    lli-child-target-13
+    llvm-rtdyld
+    llvm-otool
+    clang-cpp
+    clang
+    count
+    verify-uselistorder
+    yaml2obj
+    llvm-lto
+    llvm-cvtres
+    llvm-cfi-verify
+    llvm-nm
+    llvm-windres
+    llvm-addr2line
+    bugpoint
+    llvm-as
+    obj2yaml
+    llvm-undname
+    llvm-symbolizer
+    llvm-strings
+    llvm-dwarfdump
+    llvm-size-13
+    llvm-jitlink
+    llvm-cxxmap
+    llvm-lto2
+    llvm-cat
+    llvm-split
+    llvm-dwp
+    lli
+    llvm-install-name-tool
+    llvm-modextract
+    llvm-mca
+    opt
+)
+
+for cmd in "${commands[@]}"; do
+    update-alternatives --install /usr/bin/$cmd $cmd /usr/bin/${cmd}-13 1
+done
