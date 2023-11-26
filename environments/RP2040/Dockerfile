@@ -1,13 +1,16 @@
 FROM debian:bullseye
 
-ARG DEBIAN_FRONTEND=noninteractive0
-
-RUN apt update && \
-    apt install -y git curl cmake pkg-config python3 \
+RUN apt-get update && DEBIAN_FRONTEND=noninteractive apt-get install -y \
     build-essential \
-    libusb-1.0-0-dev \
+    curl \
+    cmake \
+    git \
     gcc-arm-none-eabi \ 
-    libnewlib-arm-none-eabi
+    libusb-1.0-0-dev \
+    libnewlib-arm-none-eabi \
+    pkg-config \
+    python3 \
+    && rm -rf /var/lib/apt/lists/*
 
 # Raspberry Pi Pico SDK
 ENV PICO_SDK_PATH=/usr/share/pico_sdk
