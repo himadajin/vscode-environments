@@ -1,1 +1,1 @@
-# docker-vscode-hdl
+# HDL development environment

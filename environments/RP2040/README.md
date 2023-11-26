@@ -1,4 +1,4 @@
-# docker-vscode-raspipico
+# RP2040 development environment
 
 ## ビルド方法
 buildディレクトリに`.uf2`ファイルが生成される。
