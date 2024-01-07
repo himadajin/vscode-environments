@@ -1,0 +1,92 @@
+#!/bin/bash
+
+commands=(
+    FileCheck
+    asan_symbolize
+    bugpoint
+    clang
+    clang++
+    clang-cpp
+    clang-format
+    count
+    dsymutil
+    llc
+    lli
+    lli-child-target-13
+    llvm-PerfectShuffle
+    llvm-addr2line
+    llvm-ar
+    llvm-as
+    llvm-bcanalyzer
+    llvm-bitcode-strip
+    llvm-c-test
+    llvm-cat
+    llvm-cfi-verify
+    llvm-config
+    llvm-cov
+    llvm-cvtres
+    llvm-cxxdump
+    llvm-cxxfilt
+    llvm-cxxmap
+    llvm-diff
+    llvm-dis
+    llvm-dlltool
+    llvm-dwarfdump
+    llvm-dwp
+    llvm-exegesis
+    llvm-extract
+    llvm-gsymutil
+    llvm-ifs
+    llvm-install-name-tool
+    llvm-jitlink
+    llvm-jitlink-executor
+    llvm-lib
+    llvm-libtool-darwin
+    llvm-link
+    llvm-lipo
+    llvm-llvm-readelf
+    llvm-lto
+    llvm-lto2
+    llvm-mc
+    llvm-mca
+    llvm-ml
+    llvm-modextract
+    llvm-mt
+    llvm-nm
+    llvm-objcopy
+    llvm-objdump
+    llvm-opt-report
+    llvm-otool
+    llvm-pdbutil
+    llvm-profdata
+    llvm-profgen
+    llvm-ranlib
+    llvm-rc
+    llvm-readobj
+    llvm-reduce
+    llvm-rtdyld
+    llvm-sim
+    llvm-size
+    llvm-split
+    llvm-stress
+    llvm-strings
+    llvm-strip
+    llvm-symbolizer
+    llvm-tapi-diff
+    llvm-tblgen
+    llvm-undname
+    llvm-windres
+    llvm-xray
+    not
+    obj2yaml
+    opt
+    sanstats
+    split-file
+    verify-uselistorder
+    yaml-bench
+    yaml2obj
+)
+
+for cmd in "${commands[@]}"; do
+    update-alternatives --install /usr/bin/$cmd $cmd /usr/bin/${cmd}-17 1
+done

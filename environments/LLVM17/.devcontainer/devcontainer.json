@@ -1,0 +1,17 @@
+{
+	"name": "LLVM17 Development",
+	"build": {
+		"context": "..",
+		"dockerfile": "../Dockerfile"
+	},
+	"customizations": {
+		"vscode": {
+			"extensions": [
+				"kaiwood.center-editor-window",
+				"oderwat.indent-rainbow",
+				"ms-vscode.cpptools",
+				"xaver.clang-format"
+			]
+		}
+	}
+}
