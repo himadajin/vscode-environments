@@ -1,0 +1,17 @@
+{
+	"name": "Haskell Development",
+	"build": {
+		"context": "..",
+		"dockerfile": "../Dockerfile"
+	},
+	"customizations": {
+		"vscode": {
+			"extensions": [
+				"kaiwood.center-editor-window",
+				"oderwat.indent-rainbow",
+				"haskell.haskell",
+				"justusadam.language-haskell"
+			]
+		}
+	}
+}
