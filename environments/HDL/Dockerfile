@@ -1,11 +1,11 @@
-FROM debian:bullseye as verilog_builder
+FROM buildpack-deps:bullseye as verilog_builder
 
 ENV IVERILOG_VERSION=v12_0
 
-ARG DEBIAN_FRONTEND=noninteractive
-
-RUN apt update && \
-    apt install -y autoconf gperf make gcc g++ bison flex git && \
+RUN apt update && apt install -y \
+    gperf \
+    bison \
+    flex && \
     rm -rf /var/lib/apt/lists/*
 
 RUN git clone --branch=${IVERILOG_VERSION} https://github.com/steveicarus/iverilog && \
@@ -33,7 +33,10 @@ RUN wget -qO- \
     tar xvz -C /tmp && \
     mv $(find /tmp -type f | grep "verible" | grep "/bin/") /usr/local/bin
 
-FROM debian:bullseye
+FROM buildpack-deps:bullseye
+
+RUN apt update && apt install -y gtkwave && \
+    rm -rf /var/lib/apt/lists/*
 
 COPY --from=verilog_builder /usr/local/bin/iverilog /usr/local/bin
 COPY --from=verilog_builder /usr/local/bin/iverilog-vpi /usr/local/bin
@@ -49,7 +52,3 @@ COPY --from=verible_builder /usr/local/bin/verible-verilog-obfuscate /usr/local/
 COPY --from=verible_builder /usr/local/bin/verible-verilog-preprocessor /usr/local/bin
 COPY --from=verible_builder /usr/local/bin/verible-verilog-project /usr/local/bin
 COPY --from=verible_builder /usr/local/bin/verible-verilog-syntax /usr/local/bin
-
-RUN apt update && \
-    apt install -y make gcc g++ git gtkwave && \
-    rm -rf /var/lib/apt/lists/*
